@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <style>
+        form .container {
+            display: flex;
+            margin: 10px;
+        }
+        .inp, .out {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="inp">
+                <label for="input_lan">Input Text:</label>
+                <input type="file" name="audio_file" accept="audio/*">  
+                <textarea name="input_lan" id="input_lan" cols="30" rows="10">{{ input_text }}</textarea>
+
+            </div>
+
+            <div class="out">
+                <label for="output_len">Translated Text:</label>
+                <textarea name="output_len" id="output_len" cols="30" rows="10">{{ translated_text }}</textarea>
+
+            </div>
+        </div>
+        <button type="submit">Translate</button>
+    </form>
+
+</body>
+</html>
